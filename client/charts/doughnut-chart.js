@@ -4,7 +4,6 @@ let defaultOptions = {
   responsive: true,
   maintainAspectRatio: false,
   events: ['click'],
-  // legend: { display: false }
 }
 
 export default Doughnut.extend({

@@ -29,7 +29,7 @@ export default new Router({
         },
         {
           name: 'category',
-          path: 'category/:type',
+          path: 'category/:id',
           component: Category
         }
       ]

@@ -18,17 +18,17 @@ let bogusdata = {
   '08.2017': {
     timePeriod: '08.2017',
     income: [
-      { type: 'salary', title: 'Pipedrive employment', amount: 3000 },
-      { type: 'salary', title: 'Brightgrove employment', amount: 1700 },
+      { id: '1', title: 'Pipedrive employment', amount: 3000 },
+      { id: '2', title: 'Brightgrove employment', amount: 1700 },
     ],
     expenses: [
-      { type: 'apartment', title: 'Apartment', amount: 548.97 },
-      { type: 'apartment', title: 'Clothes', amount: 140.00 },
-      { type: 'apartment', title: 'Food', amount: 137.28 },
-      { type: 'apartment', title: 'Cafes', amount: 97.60 },
-      { type: 'other', title: 'Transport', amount: 71.50 },
-      { type: 'other', title: 'Hygiene', amount: 28.00 },
-      { type: 'other', title: 'Presents', amount: 15.90 },
+      { id: '3', title: 'Apartment', amount: 548.97 },
+      { id: '4', title: 'Clothes', amount: 140.00 },
+      { id: '5', title: 'Food', amount: 137.28 },
+      { id: '6', title: 'Cafes', amount: 97.60 },
+      { id: '7', title: 'Transport', amount: 71.50 },
+      { id: '8', title: 'Hygiene', amount: 28.00 },
+      { id: '9', title: 'Presents', amount: 15.90 },
     ]
   },
   '07.2017': {

@@ -173,7 +173,7 @@ export default {
   settings: {
     currency: '€',
     selectedTimePeriod: {
-      month: '09.2017',
+      month: '08.2017',
       year: 'default',
       period: 'default',
     },
@@ -195,17 +195,19 @@ export default {
   },
   balance: {
     data: {
-      timePeriod: '09.2017',
+      timePeriod: '08.2017',
       income: [
-        { type: 'salary:1', title: 'salary 1', amount: 10000 },
-        { type: 'salary:2', title: 'salary 2', amount: 2000 },
-        { type: 'invest:fonds', title: 'SEB Fond', amount: 2000 },
-        { type: 'invest:stocks', title: 'stocks', amount: 100 },
+        { id: '1', title: 'Pipedrive employment', amount: 3000 },
+        { id: '2', title: 'Brightgrove employment', amount: 1700 },
       ],
       expenses: [
-        { type: 'apartment', title: 'Apartment', amount: 100 },
-        { type: 'food', title: 'Food', amount: 200000000 },
-        { type: 'other', title: 'Other', amount: 300 }
+        { id: '3', title: 'Apartment', amount: 548.97 },
+        { id: '4', title: 'Clothes', amount: 140.00 },
+        { id: '5', title: 'Food', amount: 137.28 },
+        { id: '6', title: 'Cafes', amount: 97.60 },
+        { id: '7', title: 'Transport', amount: 71.50 },
+        { id: '8', title: 'Hygiene', amount: 28.00 },
+        { id: '9', title: 'Presents', amount: 15.90 },
       ]
     },
     statistics: {
@@ -213,18 +215,39 @@ export default {
         datasets: [{
           label: 'Income',
           data: [3000, 3000, 3000, 3000],
-          // add ui configuration with actions
-          backgroundColor: 'rgba(77, 141, 54, .1)',
-          borderColor: 'rgba(77, 141, 54, 1)',
-          borderWidth: 1
         }, {
           label: 'Expenses',
           data: [1270, 1200, 1130, 900],
-          // add ui configuration with actions
-          backgroundColor: 'rgba(173, 0, 0, .4)',
-          borderColor: 'rgba(173, 0, 0, 1)',
-          borderWidth: 1
         }]
+    }
+  },
+  category: {
+    id: '',
+    data: {
+      'May': [
+        { title: 'action 1', date: '22.05.2017', value: 10 },
+        { title: 'action 2', date: '22.05.2017', value: 10 },
+        { title: 'action 3', date: '22.05.2017', value: 10 },
+      ],
+      'June': [
+        { title: 'action 1', date: '23.06.2017', value: 10 },
+        { title: 'action 2', date: '23.06.2017', value: 10 },
+        { title: 'action 3', date: '23.06.2017', value: 10 },
+      ],
+      'July': [
+        { title: 'action 1', date: '24.07.2017', value: 10 },
+        { title: 'action 2', date: '24.07.2017', value: 10 },
+        { title: 'action 3', date: '24.07.2017', value: 10 },
+      ],
+      'August': [
+        { title: 'action 1', date: '25.08.2017', value: 10 },
+        { title: 'action 2', date: '25.08.2017', value: 10 },
+        { title: 'action 3', date: '25.08.2017', value: 10 },
+      ]
+    },
+    statistics: {
+      labels: ["May", "June", "July", "August"],
+      data: [109, 120, 99.80, 105]
     }
   }
 }

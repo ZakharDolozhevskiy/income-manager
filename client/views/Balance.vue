@@ -27,7 +27,9 @@
                         <strong class="table-label">{{ key }}</strong>
                     </md-table-cell>
                     <md-table-cell>
-                        <strong class="income">+ {{ value }} {{ currency }}</strong>
+                        <strong class="income">
+                            + {{ value }} {{ currency }}
+                        </strong>
                     </md-table-cell>
                 </md-table-row>
                 <md-table-row :key="key" v-for="(value, key) in expenses">
@@ -35,26 +37,34 @@
                         <strong class="table-label">{{ key }}</strong>
                     </md-table-cell>
                     <md-table-cell>
-                        <strong class="expenses">- {{ value }} {{ currency }}</strong>
+                        <strong class="expenses">
+                            - {{ value }} {{ currency }}
+                        </strong>
                     </md-table-cell>
                 </md-table-row>
                 <md-table-row class="row-total">
                     <md-table-cell>
-                        <strong class="table-label total">Benefit</strong>
+                        <strong class="table-label total">
+                            Benefit
+                        </strong>
                     </md-table-cell>
                     <md-table-cell>
                         <template v-if="total >= 0">
-                            <strong class="income total">+{{total}} {{currency}}</strong>
+                            <strong class="income total">
+                                +{{total}} {{currency}}
+                            </strong>
                         </template>
                         <template v-else>
-                            <strong class="expenses total">-{{Math.abs(total)}} {{currency}}</strong>
+                            <strong class="expenses total">
+                                -{{Math.abs(total)}} {{currency}}
+                            </strong>
                         </template>
                     </md-table-cell>
                 </md-table-row>
             </md-table-body>
         </md-table>
         <div class="line-chart">
-            <LineChart :data="statistics" :options="lineChartOptions" />
+            <StatChart :chartData="statisticsChartData" />
         </div>
     </div>
 </template>
@@ -65,27 +75,24 @@
 
   import types from '../store/constants'
   import router from '../router'
-  import LineChart from '../charts/line-chart'
+  import StatChart from '../charts/statistics-chart'
   import TimePeriod from '../components/TimePeriod.vue'
   import DoughnutChart from '../charts/doughnut-chart'
   import {getRandomColor} from '../utils/helpers';
 
   export default {
-    data: () => ({
-      lineChartOptions: { responsive: true }
-    }),
     components: {
       TimePeriod,
-      LineChart,
+      StatChart,
       DoughnutChart
     },
     computed: mapState({
-      income(state, getters) {
-        return this.filterDataByType(getters.balance, types.INCOME)
+      income({ balance }) {
+        return this.filterDataByType(balance.data, types.INCOME)
       },
 
-      expenses(state, getters) {
-        return this.filterDataByType(getters.balance, types.EXPENSES)
+      expenses({ balance }) {
+        return this.filterDataByType(balance.data, types.EXPENSES)
       },
 
       incomeChartData() {
@@ -96,27 +103,31 @@
         return this.formatChartData(this.expenses)
       },
 
-      totalIncome(state, getters) {
-        return sumBy(getters.balance[types.INCOME], 'amount')
+      totalIncome({ balance }) {
+        return sumBy(balance.data[types.INCOME], 'amount')
       },
 
-      totalExpenses(state, getters) {
-        return sumBy(getters.balance[types.EXPENSES], 'amount')
+      totalExpenses({ balance }) {
+        return sumBy(balance.data[types.EXPENSES], 'amount')
+      },
+
+      incomeChartOpt({ balance }) {
+        return {
+          onClick: this.onChartClick.bind(this, balance.data[types.INCOME])
+        }
+      },
+
+      expensesChartOpt({ balance }) {
+        return { onClick:
+          this.onChartClick.bind(this, balance.data[types.EXPENSES])
+        }
       },
 
       total() {
         return this.totalIncome - this.totalExpenses
       },
 
-      incomeChartOpt() {
-        return { onClick: this.onChartClick.bind(this, this.income) };
-      },
-
-      expensesChartOpt() {
-        return { onClick: this.onChartClick.bind(this, this.expenses) };
-      },
-
-      statistics: (state, getters) => getters.balanceStatistics,
+      statisticsChartData: state => state.balance.statistics,
 
       currency: state => state.settings.currency
     }),
@@ -137,12 +148,10 @@
       },
 
       onChartClick: (data, event, element) => {
-        let index = element[0]._index
+        let index = element[0] && element[0]._index
+        let item = data[index];
 
-        element && router.push({
-          name: 'category',
-          params: { type: Object.keys(data)[index] }
-        })
+        item && router.push({ name: 'category', params: { id: item.id } })
       }
     }
   }

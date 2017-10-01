@@ -2,7 +2,12 @@ import { Line } from 'vue-chartjs'
 
 let defaultOptions = {
 	responsive: false,
-	maintainAspectRatio: false
+	maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true
+    }]
+  }
 }
 
 export default Line.extend({
