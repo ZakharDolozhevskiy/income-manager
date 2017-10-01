@@ -3,6 +3,7 @@ import { Doughnut, mixins } from 'vue-chartjs'
 let defaultOptions = {
   responsive: true,
   maintainAspectRatio: false,
+  events: ['click'],
   // legend: { display: false }
 }
 

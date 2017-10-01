@@ -134,7 +134,7 @@ export default {
       datasets: [{
         label: 'By months',
         data: [300, 350, 333, 400],
-        backgroundColor: 'rgba(118, 165, 175, .2)',
+        backgroundColor: 'rgba(118, 165, 175, .3)',
         borderColor: 'rgba(118, 165, 175, 1)',
         borderWidth: 1
       }, {
@@ -207,6 +207,24 @@ export default {
         { type: 'food', title: 'Food', amount: 200000000 },
         { type: 'other', title: 'Other', amount: 300 }
       ]
+    },
+    statistics: {
+        labels: ["May", "June", "July", "August"],
+        datasets: [{
+          label: 'Income',
+          data: [3000, 3000, 3000, 3000],
+          // add ui configuration with actions
+          backgroundColor: 'rgba(77, 141, 54, .1)',
+          borderColor: 'rgba(77, 141, 54, 1)',
+          borderWidth: 1
+        }, {
+          label: 'Expenses',
+          data: [1270, 1200, 1130, 900],
+          // add ui configuration with actions
+          backgroundColor: 'rgba(173, 0, 0, .4)',
+          borderColor: 'rgba(173, 0, 0, 1)',
+          borderWidth: 1
+        }]
     }
   }
 }
