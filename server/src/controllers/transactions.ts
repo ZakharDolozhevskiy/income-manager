@@ -1,11 +1,17 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 import * as HttpStatus from 'http-status-codes'
 
-import { default as Transaction, TransactionModel } from "../models/Transaction";
+import TransactionsCond from '../classes/TransactionsCond';
+import { default as Transaction, TransactionModel } from '../models/Transaction';
 
-export function all(req: Request, res: Response) {
-  Transaction.find({})
-    .then((payload: Array<TransactionModel>) => res.send(payload));
+export async function all(req: Request, res: Response) {
+  try {
+    let condition: TransactionsCond = new TransactionsCond(req.query);
+    let data = await Transaction.find(condition);
+    res.status(HttpStatus.OK).send(data);
+  } catch(err) {
+    res.status(HttpStatus.BAD_REQUEST).send(err)
+  }
 }
 
 export function one(req: Request, res: Response) {
