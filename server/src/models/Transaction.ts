@@ -6,7 +6,8 @@ export type TransactionModel = mongoose.Document & {
   timestamp: number,
   category: number,
   currency: string,
-  description: string
+  description: string,
+  user: string
 };
 
 const TransactionSchema = new mongoose.Schema({
@@ -15,6 +16,7 @@ const TransactionSchema = new mongoose.Schema({
   timestamp: { required: true, type: Number},
   category: { required: true, type: Number},
   currency: { required: true, type: String},
+  user: { required: true, type: String},
   description: String,
 }, { collection : 'transactions' })
 

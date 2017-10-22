@@ -5,7 +5,8 @@
     "category": 1,
     "currency": "€",
     "timestamp": 1507924406956,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -13,7 +14,8 @@
     "category": 2,
     "currency": "€",
     "timestamp": 1507924406957,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -21,7 +23,8 @@
     "category": 3,
     "currency": "€",
     "timestamp": 1507924406958,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -29,7 +32,8 @@
     "category": 4,
     "currency": "€",
     "timestamp": 1507924406960,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -37,7 +41,8 @@
     "category": 5,
     "currency": "€",
     "timestamp": 1507924406961,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -45,7 +50,8 @@
     "category": 6,
     "currency": "€",
     "timestamp": 1507924406961,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 0,
@@ -53,7 +59,8 @@
     "category": 7,
     "currency": "€",
     "timestamp": 1507924406962,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 1,
@@ -61,7 +68,8 @@
     "category": 8,
     "currency": "€",
     "timestamp": 1507924406963,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
   },
   {
     "type": 1,
@@ -69,6 +77,16 @@
     "category": 9,
     "currency": "€",
     "timestamp": 1507924406964,
-    "description": "..."
+    "description": "...",
+    "user": '59ecf801858e97bcb06cd44b'
+  },
+  {
+    "type": 1,
+    "value": 1700,
+    "category": 11,
+    "currency": "XXXX",
+    "timestamp": 11,
+    "description": "XXXX",
+    "user": 'XXXX'
   }
 ]

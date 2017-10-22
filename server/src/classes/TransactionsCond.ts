@@ -4,7 +4,7 @@ export default class TransactionsCond {
   category: number
   timestamp: RangeOfDates
 
-  constructor(query: { period: string, category: string }) {
+  constructor(query: { period: string, category: string }, private user: string) {
     query.category && (this.category = Number(query.category));
     query.period && (this.timestamp = this.getTimeCondition(query.period))
   }

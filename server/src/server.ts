@@ -101,15 +101,15 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', '
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
   (req, res) => res.redirect(req.session.returnTo || '/'));
 
-app.get('/transactions', transactionsCtrl.all);
-app.post('/transactions', transactionsCtrl.add);
-app.get('/transactions/:id', transactionsCtrl.one);
-app.put('/transactions/:id', transactionsCtrl.update);
-app.delete('/transactions/:id', transactionsCtrl.remove);
+app.get('/transactions', passportConfig.isAuthenticated, transactionsCtrl.all);
+app.post('/transactions', passportConfig.isAuthenticated, transactionsCtrl.add);
+app.get('/transactions/:id', passportConfig.isAuthenticated, transactionsCtrl.one);
+app.put('/transactions/:id', passportConfig.isAuthenticated, transactionsCtrl.update);
+app.delete('/transactions/:id', passportConfig.isAuthenticated, transactionsCtrl.remove);
 
-app.get('/categories', categoriesCtrl.all);
-app.post('/categories', categoriesCtrl.add);
-app.put('/categories/:id', categoriesCtrl.update);
+app.get('/categories', passportConfig.isAuthenticated, categoriesCtrl.all);
+app.post('/categories', passportConfig.isAuthenticated, categoriesCtrl.add);
+app.put('/categories/:id', passportConfig.isAuthenticated, categoriesCtrl.update);
 
 app.use(errorHandler());
 
